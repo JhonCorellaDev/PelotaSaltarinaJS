@@ -1,0 +1,46 @@
+<html>
+<head>
+<title> Simple Pelota Saltarina </title>
+<style>
+#pelotita {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    background-color: blue;
+    border-radius: 50%;
+}
+</style>
+</head>
+<body>
+
+<div id="pelotita"></div>
+
+<script>
+var pelotita = document.querySelector('#pelotita');
+
+var x = 0;
+var y = 0;
+var vx = 5;
+var vy = 5;
+
+function animarPelotita() {
+    x += vx;
+    y += vy;
+
+    pelotita.style.top = y + 'px';
+    pelotita.style.left = x + 'px';
+
+    if (x >= window.innerWidth - 30 || x <= 0) {
+        vx *= -1;
+    }
+    if (y >= window.innerHeight - 30 || y <= 0) {
+        vy *= -1;
+    }
+    requestAnimationFrame(animarPelotita);
+}
+
+requestAnimationFrame(animarPelotita);
+</script>
+
+</body>
+</html>
